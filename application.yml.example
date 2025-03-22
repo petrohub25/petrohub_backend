@@ -1,0 +1,24 @@
+server:
+  port: ##port
+
+application:
+  security:
+    jwt:
+      secret-key: ##JWT_SECRET_KEY
+      expiration: ##TOKEN_DURATION
+      refresh-token:
+        expiration: ##TOKEN_EXPIRATION
+
+spring:
+  flyway:
+    enabled: true
+    locations: ##classpath:{path/to/migrations}
+  datasource:
+    url: ##DB_URL
+    username: ##DB_USERNAME
+    password: ##DB_PASSWORD
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+debug: true
