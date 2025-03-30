@@ -7,6 +7,4 @@ public record DocumentoRegistryData(
         @NotNull
         String titulo,
         @NotNull
-        String path,
-        @NotNull
         String etiquetas) { }

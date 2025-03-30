@@ -4,10 +4,13 @@ server:
 application:
   security:
     jwt:
-      secret-key: ##JWT_SECRET_KEY
-      expiration: ##TOKEN_DURATION
+      secret-key: ##${JWT_SECRET_KEY}
+      expiration: ##${TOKEN_DURATION}
       refresh-token:
-        expiration: ##TOKEN_EXPIRATION
+        expiration: ##${TOKEN_EXPIRATION}
+
+documentos:
+  path: src/main/resources/documentos
 
 spring:
   flyway:
@@ -15,8 +18,8 @@ spring:
     locations: ##classpath:{path/to/migrations}
   datasource:
     url: ##DB_URL
-    username: ##DB_USERNAME
-    password: ##DB_PASSWORD
+    username: ##${DB_USERNAME}
+    password: ##${DB_PASSWORD}
   jpa:
     properties:
       hibernate:

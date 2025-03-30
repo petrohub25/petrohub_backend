@@ -3,6 +3,10 @@ package org.unam.petrohub_project;
 import io.github.cdimascio.dotenv.Dotenv;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.FilterType;
+import org.springframework.data.rest.webmvc.config.RepositoryRestMvcConfiguration;
+import org.springframework.data.web.config.EnableSpringDataWebSupport;
 
 @SpringBootApplication
 public class PetrohubProjectApplication {

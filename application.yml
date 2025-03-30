@@ -9,6 +9,9 @@ application:
       refresh-token:
         expiration: ${TOKEN_EXPIRATION}
 
+documentos:
+  path: src/main/resources/documentos
+
 spring:
   flyway:
     enabled: true

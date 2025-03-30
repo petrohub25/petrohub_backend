@@ -27,9 +27,9 @@ public class Documento {
     @NotNull
     private String etiquetas;
 
-    public Documento(DocumentoRegistryData documentoRegistryData) {
+    public Documento(DocumentoRegistryData documentoRegistryData, String path) {
         this.titulo = documentoRegistryData.titulo();
-        this.path = documentoRegistryData.path();
+        this.path = path;
         if (documentoRegistryData.etiquetas() != null && !documentoRegistryData.etiquetas().isEmpty()) {
             this.etiquetas = documentoRegistryData.etiquetas();
         } else {
