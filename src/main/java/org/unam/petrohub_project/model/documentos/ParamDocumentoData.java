@@ -1,3 +1,3 @@
 package org.unam.petrohub_project.model.documentos;
 
-public record ParamDocumentoData(String titulo, String path, String etiquetas) { }
+public record ParamDocumentoData(String titulo, String etiquetas) { }

@@ -3,6 +3,8 @@ package org.unam.petrohub_project.config;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpHeaders;
 import org.springframework.context.annotation.Bean;
+import org.springframework.http.HttpMethod;
+import org.springframework.web.cors.CorsConfiguration;
 import org.unam.petrohub_project.model.token.Token;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.context.annotation.Configuration;
@@ -15,6 +17,8 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
 import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
+
+import java.util.List;
 
 @Configuration
 @EnableWebSecurity
@@ -31,7 +35,7 @@ public class SecurityConfig {
         http
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(req ->
-                        req.requestMatchers("/auth/**", "/", "/buscar")
+                        req.requestMatchers("/auth/**", "/", "/buscar", "/documentos", "/documentos/**")
                                 .permitAll()
                                 .anyRequest()
                                 .authenticated()
@@ -47,6 +51,14 @@ public class SecurityConfig {
                                 })
                                 .logoutSuccessHandler((request, response, authentication) ->
                                         SecurityContextHolder.clearContext())
+                ).cors(cors -> cors.configurationSource(request -> {
+                    CorsConfiguration corsConfig = new CorsConfiguration();
+                    corsConfig.setAllowedOrigins(List.of("http://localhost:3000"));
+                    corsConfig.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE"));
+                    corsConfig.setAllowedHeaders(List.of("*"));
+                    corsConfig.setAllowCredentials(true);
+                    return corsConfig;
+                })
                 );
 
         return http.build();
