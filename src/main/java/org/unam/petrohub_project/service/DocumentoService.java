@@ -25,7 +25,7 @@ public class DocumentoService {
     }
 
     public Documento save(MultipartFile file, DocumentoRegistryData documentoRegistryData) throws IOException {
-        Path directory = Paths.get(documentosPath).toAbsolutePath().normalize();
+        Path directory = Paths.get(documentosPath).normalize();
 
         if (!directory.toFile().exists()) {
             directory.toFile().mkdirs();
