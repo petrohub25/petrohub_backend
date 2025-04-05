@@ -2,6 +2,7 @@ package org.unam.petrohub_project.config;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.unam.petrohub_project.model.usuario.Usuario;
 import org.springframework.context.annotation.Configuration;
 import org.unam.petrohub_project.model.usuario.UsuarioRepository;
@@ -17,6 +18,7 @@ import org.springframework.security.config.annotation.authentication.configurati
 
 @Configuration
 @RequiredArgsConstructor
+@EnableJpaRepositories(basePackages = "org.unam.petrohub_project.model.usuario")
 public class AppConfig {
 
     private final UsuarioRepository usuarioRepository;
