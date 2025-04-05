@@ -7,6 +7,7 @@ import io.jsonwebtoken.Claims;
 import javax.crypto.SecretKey;
 import io.jsonwebtoken.io.Decoders;
 import io.jsonwebtoken.security.Keys;
+import jakarta.annotation.PostConstruct;
 import org.springframework.stereotype.Service;
 import org.unam.petrohub_project.model.usuario.Usuario;
 import org.springframework.beans.factory.annotation.Value;
@@ -70,5 +71,12 @@ public class JwtService {
                 .parseSignedClaims(refreshToken)
                 .getPayload();
         return jwtToken.getExpiration();
+    }
+
+    @PostConstruct
+    public void checkEnv() {
+        System.out.println(">>> secretKey: " + secretKey);
+        System.out.println(">>> jwtExpiration: " + jwtExpiration);
+        System.out.println(">>> refreshExpiration: " + refreshExpiration);
     }
 }
