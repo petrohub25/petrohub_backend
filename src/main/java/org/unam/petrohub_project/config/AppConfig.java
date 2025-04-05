@@ -19,8 +19,8 @@ import org.springframework.security.config.annotation.authentication.configurati
 
 @Configuration
 @RequiredArgsConstructor
-@EnableJpaRepositories(basePackages = {"org.unam.petrohub_project.model.usuario", "org.unam.petrohub_project.model.token"})
 @ComponentScan(basePackages = "org.unam.petrohub_project")
+@EnableJpaRepositories(basePackages = {"org.unam.petrohub_project.model.usuario", "org.unam.petrohub_project.model.token", "org.unam.petrohub_project.model.documentos"})
 public class AppConfig {
 
     private final UsuarioRepository usuarioRepository;
