@@ -72,11 +72,4 @@ public class JwtService {
                 .getPayload();
         return jwtToken.getExpiration();
     }
-
-    @PostConstruct
-    public void checkEnv() {
-        System.out.println(">>> secretKey: " + secretKey);
-        System.out.println(">>> jwtExpiration: " + jwtExpiration);
-        System.out.println(">>> refreshExpiration: " + refreshExpiration);
-    }
 }
