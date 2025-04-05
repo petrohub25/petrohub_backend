@@ -53,7 +53,7 @@ public class SecurityConfig {
                                         SecurityContextHolder.clearContext())
                 ).cors(cors -> cors.configurationSource(request -> {
                     CorsConfiguration corsConfig = new CorsConfiguration();
-                    corsConfig.setAllowedOrigins(List.of("https://petrohub-frontend.onrenderer.com"));
+                    corsConfig.setAllowedOrigins(List.of("https://petrohub-frontend.onrender.com"));
                     corsConfig.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE"));
                     corsConfig.setAllowedHeaders(List.of("*"));
                     corsConfig.setAllowCredentials(true);
