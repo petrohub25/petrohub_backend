@@ -1,5 +1,7 @@
 package org.unam.petrohub_project.model.documentos;
 
+import jakarta.annotation.Nullable;
+import jakarta.validation.constraints.Null;
 import lombok.Getter;
 
 import java.util.Arrays;
@@ -9,10 +11,12 @@ import jakarta.persistence.*;
 import lombok.NoArgsConstructor;
 import lombok.AllArgsConstructor;
 import jakarta.validation.constraints.NotNull;
+import lombok.Setter;
 
 @Table(name="documento")
 @Entity
 @Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 public class Documento {
@@ -22,14 +26,13 @@ public class Documento {
     private UUID documentoId;
     @NotNull
     private String titulo;
-    @NotNull
+    @Nullable
     private String path;
     @NotNull
     private String etiquetas;
 
-    public Documento(DocumentoRegistryData documentoRegistryData, String path) {
+    public Documento(DocumentoRegistryData documentoRegistryData) {
         this.titulo = documentoRegistryData.titulo();
-        this.path = path;
         if (documentoRegistryData.etiquetas() != null && !documentoRegistryData.etiquetas().isEmpty()) {
             this.etiquetas = documentoRegistryData.etiquetas();
         } else {
